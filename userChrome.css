@@ -1,0 +1,64 @@
+/* ~/.mozilla/firefox/[your-profile]/chrome/userChrome.css */
+
+/* Base menu styling - completely flat and borderless */
+menupopup {
+  --panel-background: var(--arrowpanel-background) !important;
+  --panel-color: var(--arrowpanel-color) !important;
+  --panel-border-color: transparent !important;
+  
+  appearance: none !important;
+  background: var(--panel-background) !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Menu items - flat styling */
+menuitem, menu {
+  appearance: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+  margin: 0 !important;
+  padding: 0.35em 0.8em !important;
+}
+
+/* SELECTABLE items - lighter hover */
+menuitem:not([disabled="true"]):hover, 
+menu:not([disabled="true"]):hover {
+  background-color: color-mix(in srgb, currentColor 8%, transparent) !important;
+}
+
+/* NON-SELECTABLE items - darker hover */
+menuitem[disabled="true"]:hover, 
+menu[disabled="true"]:hover {
+  background-color: color-mix(in srgb, currentColor 20%, transparent) !important;
+}
+
+/* Active/open items styling */
+menuitem[open="true"],
+menu[open="true"] {
+  background-color: color-mix(in srgb, currentColor 12%, transparent) !important;
+}
+
+/* Completely remove separators */
+/* menuseparator {
+  display: none !important;
+} */
+
+/* Submenu arrows - make them flat */
+/* .menu-right {
+  appearance: none !important;
+  list-style-image: none !important;
+} */
+
+/* Remove any remaining borders */
+panel, panelview {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Add padding between bookmark items */
+menupopup[placespopup="true"] menuitem, 
+menupopup[placespopup="true"] menu {
+  padding-block: 6px !important; /* Vertical spacing */
+  margin-block: 1px !important;  /* Tiny gap between items */
+}
